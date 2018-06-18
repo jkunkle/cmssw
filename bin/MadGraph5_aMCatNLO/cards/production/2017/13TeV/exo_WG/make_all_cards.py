@@ -7,7 +7,7 @@ parser = ArgumentParser()
 
 parser.add_argument( '--original_cards', dest='original_cards', required=True, help='path to start from' )
 parser.add_argument( '--output_dir', dest='output_dir', required=True, help='location to write new directories' )
-parser.add_argument( '--base_name', dest='base_name', default='ChargedResonance_WGToLNu', help='Base name of samples.  Should be ChargedResonance_WGToLNu or ChargedResonance_WGToJJ' )
+parser.add_argument( '--base_name', dest='base_name', default='MadGraphChargedResonance_WGToLNuG', help='Base name of samples.  Should be MadGraphChargedResonance_WGToLNuG or MadGraphChargedResonance_WGToJJG' )
 
 options = parser.parse_args()
 
