@@ -302,11 +302,20 @@ void PATPhotonProducer::produce(edm::Event & iEvent, const edm::EventSetup & iSe
 
     // set conversion veto selection
     bool passelectronveto = false;
+    bool passelectronveto_supercluster = false;
+    bool passelectronveto_missinghits = false;
+    bool passelectronveto_conversion = false;
     if( hConversions.isValid()){
     // this is recommended method
       passelectronveto = !ConversionTools::hasMatchedPromptElectron(photonRef->superCluster(), hElectrons, hConversions, beamSpotHandle->position());
+      passelectronveto_supercluster = !ConversionTools::hasMatchedPromptElectronSupercluster(photonRef->superCluster(), hElectrons, hConversions, beamSpotHandle->position());
+      passelectronveto_missinghits = !ConversionTools::hasMatchedPromptElectronMissingHits(photonRef->superCluster(), hElectrons, hConversions, beamSpotHandle->position());
+      passelectronveto_conversion = !ConversionTools::hasMatchedPromptElectronConversion(photonRef->superCluster(), hElectrons, hConversions, beamSpotHandle->position());
     }
     aPhoton.setPassElectronVeto( passelectronveto );
+    aPhoton.setPassElectronVetoSupercluster( passelectronveto_supercluster );
+    aPhoton.setPassElectronVetoMissingHits( passelectronveto_missinghits );
+    aPhoton.setPassElectronVetoConversion( passelectronveto_conversion );
 
 
     // set electron veto using pixel seed (not recommended but many analysis groups are still using since it is powerful method to remove electrons)

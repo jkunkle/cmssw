@@ -229,6 +229,12 @@ namespace pat {
       /// vertex fit method 
       bool passElectronVeto() const { return passElectronVeto_; }
       void setPassElectronVeto( bool flag ) { passElectronVeto_ = flag; }
+      bool passElectronVetoSupercluster() const { return passElectronVetoSupercluster_; }
+      void setPassElectronVetoSupercluster( bool flag ) { passElectronVetoSupercluster_ = flag; }
+      bool passElectronVetoMissingHits() const { return passElectronVetoMissingHits_; }
+      void setPassElectronVetoMissingHits( bool flag ) { passElectronVetoMissingHits_ = flag; }
+      bool passElectronVetoConversion() const { return passElectronVetoConversion_; }
+      void setPassElectronVetoConversion( bool flag ) { passElectronVetoConversion_ = flag; }
       //pixel seed to veto electron (not recommended by EGM POG but it seems very efficient)
       bool hasPixelSeed() const { return hasPixelSeed_; }
       void setHasPixelSeed( bool flag ) { hasPixelSeed_ = flag; }
@@ -351,6 +357,9 @@ namespace pat {
 
       /// ---- conversion veto ----
       bool passElectronVeto_;
+      bool passElectronVetoSupercluster_;
+      bool passElectronVetoMissingHits_;
+      bool passElectronVetoConversion_;
       bool hasPixelSeed_;
       
       /// ---- input variables for regression energy corrections ----
